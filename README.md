@@ -3,7 +3,7 @@
 
 Here is basic range slider supported in Angular version 2 & 4 without angular material.
 
-## # How to use?
+## How to use?
 
 1. Download **custom-range-slider** folder
 
