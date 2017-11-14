@@ -27,7 +27,7 @@ The above object shows the configuration of the slider
 
     min: number - minimum value on the slider
     max: number - maximum value on the slider
-    start: number - starting value of the slider
+    start: number - starting value of the thumb
     thumbShow: boolean - whether thumb should be shown or not
     selectCallBack: function - callback function to execute on slider value selection
 
