@@ -41,7 +41,7 @@ export class CustomRangeSliderComponent implements OnInit {
             this.thumb.classList.add('hide-completely')
         }
 
-        this.setSliderUIValues(this.percentage);
+        this.setSliderUIValues(this.percentage, this.sliderConfig);
     }
 
 	/**
@@ -71,7 +71,7 @@ export class CustomRangeSliderComponent implements OnInit {
                 this.percentage = ((event.pageX - sliderLeftPos) / this.sliderBar.nativeElement.offsetWidth) * 100;
             }
 
-            this.setSliderUIValues(this.percentage);
+            this.setSliderUIValues(this.percentage, null);
             
             if(this.sliderConfig.selectCallBack) {
                 this.sliderConfig.selectCallBack(this.percentage);
@@ -120,10 +120,30 @@ export class CustomRangeSliderComponent implements OnInit {
      * set dot position
      * set thumb value
      * @param { number } percentage - any number
+     * @param { Object } sliderConfig - custom slider configuration
      */
-    setSliderUIValues(percentage) {
+    setSliderUIValues(percentage, sliderConfig) {
         this.dot.style.left = percentage + "%";
         this.filledBar.style.width = percentage + "%";
         this.thumb.innerHTML = parseInt(percentage) + "%";
+
+        // set slider ui configuration
+        if(sliderConfig) {
+            if(sliderConfig.barColor) {
+                this.sliderBar.nativeElement.style.backgroundColor = sliderConfig.barColor;
+            }
+            if(sliderConfig.barWidth) {
+                this.sliderBar.nativeElement.style.width = sliderConfig.barWidth;
+            }
+            if(sliderConfig.dotColor) {
+                this.dot.style.backgroundColor = sliderConfig.dotColor;
+            }
+            if(sliderConfig.thumbColor) {
+                this.thumb.style.backgroundColor = sliderConfig.thumbColor;
+            }
+            if(sliderConfig.filledBarColor) {
+                this.filledBar.style.backgroundColor = sliderConfig.filledBarColor;
+            }
+        }
     }
 }
