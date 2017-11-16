@@ -13,11 +13,16 @@ Here is basic range slider supported in Angular version 2 & 4 without angular ma
 
 ### Configure range slider
 
-	populationSlider: object = {
-		min: 10,
-		max: 1500,
-		start: 150,
+	workWageSlider: object = {
+		min: 1,
+		max: 1000,
+		start: 500,
 		thumbShow: true,
+		barColor: "",
+		dotColor: "",
+		thumbColor: "",
+		filledBarColor: "",
+		barWidth: "",
 		selectCallBack: this.selectCallBack.bind(this)
 	}
 
@@ -29,6 +34,11 @@ The above object shows the configuration of the slider
     max: number - maximum value on the slider
     start: number - starting value of the thumb
     thumbShow: boolean - whether thumb should be shown or not
+    barColor: string - color of the bar
+    dotColor: string - color of the movable dot
+    thumbColor: string - color of the thumb
+    filledBarColor: string - color of the filled/selected portion
+    barWidth: number - width of the slider bar
     selectCallBack: function - callback function to execute on slider value selection
 
 
