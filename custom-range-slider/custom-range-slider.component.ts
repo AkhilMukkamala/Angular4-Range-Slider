@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, HostListener, Input, Renderer } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, HostListener, Input } from '@angular/core';
 
 @Component({
     selector: 'app-custom-range-slider',
@@ -18,7 +18,7 @@ export class CustomRangeSliderComponent implements OnInit {
     /**
      * constructor function of the component 
      */
-    constructor(private elemRef: ElementRef, private renderer: Renderer) { }
+    constructor(private elemRef: ElementRef) { }
 
     /**
      * called on the component initialization
@@ -76,7 +76,7 @@ export class CustomRangeSliderComponent implements OnInit {
             if(this.sliderConfig.selectCallBack) {
                 this.sliderConfig.selectCallBack(this.percentage);
             }
-            return this.percentage; // return calculated/set percentage
+            return parseInt(this.percentage); // return calculated/set percentage
         }
     }
 
@@ -106,18 +106,13 @@ export class CustomRangeSliderComponent implements OnInit {
      * @param event - click event object
      */
     onClick(event) {
-        this.thumb.classList.remove('c2-hide');
-        let sliderLeftPos = this.sliderBar.nativeElement.offsetLeft;
-        this.percentage = ((event.pageX - sliderLeftPos) / this.sliderBar.nativeElement.offsetWidth) * 100;
-        this.setSliderUIValues(this.percentage);
+        this.onMouseMoveOnSlider(event);
+        
+        // hide thumb and overlay
         setTimeout(()=>{
             this.thumb.classList.add('c2-hide');
+            this.overlay.classList.add('c2-hide');
         }, 300);
-
-        if(this.sliderConfig.selectCallBack) {
-            this.sliderConfig.selectCallBack(this.percentage);
-        }
-        return this.percentage; // return calculated/set percentage
     }
 
     /**
