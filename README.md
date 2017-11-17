@@ -39,7 +39,7 @@ The above object shows the configuration of the slider
     thumbColor: string - color of the thumb
     filledBarColor: string - color of the filled/selected portion
     barWidth: number - width of the slider bar
-    selectCallBack: function - callback function to execute on slider value selection
+    selectCallBack: function - callback function to execute on slider value selection. This will return selected percentage. Use this value in your code.
 
 
 Pass the configuration object to slider component as an input as shown below
