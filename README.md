@@ -44,4 +44,4 @@ The above object shows the configuration of the slider
 
 Pass the configuration object to slider component as an input as shown below
 
-`<app-custom-range-slider [sliderConfig]="populationSlider"></app-custom-range-slider>`
+`<app-custom-range-slider [sliderConfig]="workWageSlider"></app-custom-range-slider>`
